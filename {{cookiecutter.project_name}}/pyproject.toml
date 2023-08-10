@@ -1,0 +1,108 @@
+[tool.flake8]
+extend-ignore = [
+  'ANN101',
+  'ANN204',
+  'B008',
+  'C812',
+  'C815',
+  'D',
+  'E203',
+  'I001',
+  'I005',
+  'P103',
+  'Q000',
+  'WPS100',
+  'WPS110',
+  'WPS112',
+  'WPS115',
+  'WPS210',
+  'WPS211',
+  'WPS214',
+  'WPS217',
+  'WPS226',
+  'WPS229',
+  'WPS237',
+  'WPS305',
+  'WPS306',
+  'WPS336',
+  'WPS404',
+  'WPS412',
+  'WPS420',
+  'WPS504',
+  'WPS529',
+  'WPS604',
+]
+
+per-file-ignores = []
+docstring-convention = 'google'
+
+[tool.taskipy.tasks]
+test = "python -m pytest -s tests --cov"
+lint = "pre-commit run --all-file"
+start = "poetry run python -m {{cookiecutter.package}}.main"
+
+[tool.pylint."messages control"]
+disable = [
+  "too-few-public-methods",
+  "too-many-function-args",
+  "unexpected-keyword-arg",
+  "no-member",
+  "missing-module-docstring",
+  "missing-class-docstring",
+  "missing-function-docstring",
+  "invalid-name",
+  "too-many-instance-attributes",
+  "too-many-arguments",
+  "too-many-instance-attributes",
+  "import-error",
+  "no-name-in-module",
+  "fixme",
+]
+
+[tool.pylint.refactoring]
+max-nested-blocks = 3
+
+[tool.black]
+line-length = 79
+
+[tool.poetry]
+name = "{{cookiecutter.project_name}}"
+version = "{{cookiecutter.version}}"
+description = "{{cookiecutter.project_short_description}}"
+authors = ["{{cookiecutter.full_name}} {{cookiecutter.email}}"]
+packages = [{ include = "{{cookiecutter.package}}" }]
+readme = "README.md"
+
+[tool.coverage.report]
+fail_under = 70
+
+[tool.coverage.run]
+branch = true
+source = ["{{cookiecutter.package}}"]
+
+[tool.poetry.dependencies]
+
+{{'dynaconf = "^3.1.12"' if cookiecutter.dynaconf else ''}}
+{{'alembic = "^1.11.1"' if cookiecutter.alembic else ''}}
+{{'logbt = "0.4.0"' if cookiecutter.logbt else ''}}
+
+
+python = ">=3.10,<3.11"
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.3.2"
+pytest-env = "^0.8.2"
+pytest-dependency = "^0.5.1"
+taskipy = "^1.11.0"
+pytest-cov = "^4.1.0"
+coverage = { extras = ["toml"], version = "^7.2.7" }
+flake8-pyproject = "^1.2.3"
+wemake-python-styleguide = "^0.18.0"
+
+
+[tool.poetry.group.ci.dependencies]
+nox = "^2023.4.22"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

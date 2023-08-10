@@ -1,0 +1,29 @@
+{
+  "project_name": "Sample",
+  "package": "{{ cookiecutter.project_name.lower().replace(' ', '_') }}",
+  "full_name": "",
+  "email": "",
+  "project_short_description": "",
+  "version": "0.0.1",
+  "docker": true,
+  "dynaconf": true,
+  "logbt": true,
+  "alembic": true,
+  "autoflake": true,
+  "pre_commit_hooks": true,
+  "darglint": true,
+  "reorder_python_imports": true,
+  "pycln": true,
+  "pyupgrade": true,
+  "black": true,
+  "mypy": true,
+  "pylint": true,
+  "flake": true,
+  "__prompts__": {
+    "full_name": "Provide your [bold yellow]full name[/]",
+    "email": "Provide your [bold yellow]email[/]",
+    "project_name": "Provide your [bold yellow]project name[/]",
+    "project_short_description": "Provide your [bold yellow]project description[/]",
+    "version": "Provide your [bold yellow]project version[/]"
+  }
+}

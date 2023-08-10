@@ -1,0 +1,8 @@
+[default]
+[backend]
+log = "DEBUG"
+
+[development]
+
+[production]
+backend__log = "INFO"
