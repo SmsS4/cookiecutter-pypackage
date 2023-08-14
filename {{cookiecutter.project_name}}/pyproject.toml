@@ -1,3 +1,7 @@
+[tool.ruff]
+line-length = 79
+target-version = "py310"
+
 [tool.flake8]
 extend-ignore = [
   'ANN101',

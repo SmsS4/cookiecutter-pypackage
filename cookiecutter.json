@@ -18,6 +18,7 @@
   "black": true,
   "mypy": true,
   "pylint": true,
+  "ruff": true,
   "flake": true,
   "__prompts__": {
     "full_name": "Provide your [bold yellow]full name[/]",
