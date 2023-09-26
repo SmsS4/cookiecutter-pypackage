@@ -73,7 +73,7 @@ line-length = 79
 name = "{{cookiecutter.project_name}}"
 version = "{{cookiecutter.version}}"
 description = "{{cookiecutter.project_short_description}}"
-authors = ["{{cookiecutter.full_name}} {{cookiecutter.email}}"]
+authors = ["{{cookiecutter.full_name}} <{{cookiecutter.email}}>"]
 packages = [{ include = "{{cookiecutter.package}}" }]
 readme = "README.md"
 
